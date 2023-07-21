@@ -1,8 +1,8 @@
 {
   "name": "is-it-taken",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Check If npm package name is already taken",
-  "main": "index.node",
+  "main": "index.js",
   "types": "index.d.ts",
   "bin": "cli.js",
   "files": [
@@ -79,5 +79,20 @@
       "TS_NODE_PROJECT": "./tsconfig.json"
     }
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.1",
+  "optionalDependencies": {
+    "is-it-taken-win32-x64-msvc": "1.0.1",
+    "is-it-taken-darwin-x64": "1.0.1",
+    "is-it-taken-linux-x64-gnu": "1.0.1",
+    "is-it-taken-linux-x64-musl": "1.0.1",
+    "is-it-taken-linux-arm64-gnu": "1.0.1",
+    "is-it-taken-win32-ia32-msvc": "1.0.1",
+    "is-it-taken-linux-arm-gnueabihf": "1.0.1",
+    "is-it-taken-darwin-arm64": "1.0.1",
+    "is-it-taken-android-arm64": "1.0.1",
+    "is-it-taken-freebsd-x64": "1.0.1",
+    "is-it-taken-linux-arm64-musl": "1.0.1",
+    "is-it-taken-win32-arm64-msvc": "1.0.1",
+    "is-it-taken-android-arm-eabi": "1.0.1"
+  }
 }
