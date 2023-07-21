@@ -1,0 +1,37 @@
+{
+  "name": "is-it-taken",
+  "version": "1.0.1",
+  "description": "Check If npm package name is already taken",
+  "main": "index.node",
+  "types": "index.d.ts",
+  "bin": {
+    "is-it-taken": "index.js"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
+    "build-debug": "npm run build --",
+    "build-release": "npm run build -- --release",
+    "install": "npm run build-release",
+    "test": "cargo test"
+  },
+  "author": "BRAVO68WEB",
+  "license": "ISC",
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BRAVO68WEB/is-already-taken.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "bugs": {
+    "url": "https://github.com/BRAVO68WEB/is-already-taken/issues"
+  },
+  "homepage": "https://github.com/BRAVO68WEB/is-already-taken#readme"
+}

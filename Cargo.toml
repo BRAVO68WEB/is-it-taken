@@ -1,0 +1,21 @@
+[package]
+name = "is-it-taken"
+version = "1.0.1"
+description = "Check If npm package name is already taken"
+authors = ["BRAVO68WEB"]
+license = "ISC"
+edition = "2018"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ureq = "2.7.1"
+
+[dependencies.neon]
+version = "0.10"
+default-features = false
+features = ["napi-6"]
