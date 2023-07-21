@@ -5,23 +5,50 @@
   "main": "index.node",
   "types": "index.d.ts",
   "bin": {
-    "is-it-taken": "index.js"
+    "is-it-taken": "cli.js"
   },
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "cli.js"
   ],
+  "napi": {
+    "name": "is-it-taken",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "x86_64-unknown-linux-musl",
+        "aarch64-unknown-linux-gnu",
+        "i686-pc-windows-msvc",
+        "armv7-unknown-linux-gnueabihf",
+        "aarch64-apple-darwin",
+        "aarch64-linux-android",
+        "x86_64-unknown-freebsd",
+        "aarch64-unknown-linux-musl",
+        "aarch64-pc-windows-msvc",
+        "armv7-linux-androideabi"
+      ]
+    }
+  },
   "scripts": {
-    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build --",
-    "build-release": "npm run build -- --release",
-    "install": "npm run build-release",
-    "test": "cargo test"
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release --pipe \"prettier -w\"",
+    "build:debug": "napi build --platform --pipe \"prettier -w\"",
+    "format": "run-p format:prettier format:rs",
+    "format:prettier": "prettier . -w",
+    "format:rs": "cargo fmt",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "version": "napi version"
   },
   "author": "BRAVO68WEB",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
+    "@napi-rs/cli": "^2.16.2",
+    "@swc-node/register": "^1.6.6",
+    "ava": "^5.3.1",
+    "cargo-cp-artifact": "^0.1",
+    "prettier": "^3.0.0"
   },
   "repository": {
     "type": "git",
@@ -33,5 +60,26 @@
   "bugs": {
     "url": "https://github.com/BRAVO68WEB/is-already-taken/issues"
   },
-  "homepage": "https://github.com/BRAVO68WEB/is-already-taken#readme"
+  "homepage": "https://github.com/BRAVO68WEB/is-already-taken#readme",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "arrowParens": "always"
+  },
+  "ava": {
+    "require": [
+      "@swc-node/register"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "timeout": "2m",
+    "workerThreads": false,
+    "environmentVariables": {
+      "TS_NODE_PROJECT": "./tsconfig.json"
+    }
+  },
+  "packageManager": "pnpm@8.6.8"
 }
