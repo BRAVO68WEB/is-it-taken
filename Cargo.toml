@@ -24,6 +24,3 @@ napi-build = "2"
 
 [profile.release]
 lto = true
-
-[patch.crates-io]
-ring = { git = "https://github.com/awakecoding/ring", branch = "0.16.20_alpha" }
