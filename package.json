@@ -37,6 +37,7 @@
     "format:rs": "cargo fmt",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "ava",
+    "universal": "napi universal",
     "version": "napi version"
   },
   "author": "BRAVO68WEB",
