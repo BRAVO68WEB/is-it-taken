@@ -502,7 +502,7 @@ jobs:
         shell: bash
       - name: Publish
         run: |
-          npm config set provenance true
+          # npm config set provenance true
           npm i -g @napi-rs/cli
           if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
           then
