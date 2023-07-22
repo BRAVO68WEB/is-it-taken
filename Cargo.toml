@@ -16,8 +16,14 @@ ureq = "2.7.1"
 napi = "2"
 napi-derive = "2"
 
+[target.'cfg(all(any(windows, unix), target_arch = "x86_64", not(target_env = "musl")))'.dependencies]
+mimalloc = {version = "0.1"}
+
 [build-dependencies]
 napi-build = "2"
 
 [profile.release]
 lto = true
+
+[patch.crates-io]
+ring = { git = "https://github.com/awakecoding/ring", branch = "0.16.20_alpha" }
