@@ -14,4 +14,4 @@ npx is-it-taken <package-name>
 
 ## License
 
-MIT
+[MIT](./LICENSE)
